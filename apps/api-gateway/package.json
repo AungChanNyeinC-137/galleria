@@ -1,0 +1,29 @@
+{
+  "name": "@galleria/api-gateway",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@galleria/api-gateway:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@galleria/api-gateway:build:development"
+          },
+          "production": {
+            "buildTarget": "@galleria/api-gateway:build:production"
+          }
+        }
+      }
+    }
+  }
+}
